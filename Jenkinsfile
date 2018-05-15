@@ -16,8 +16,11 @@ pipeline {
     }
 
     stage('Who Am I?') { agent any
+      environment {
+        WHOAMI_VAR = 'I am printing'
+      }
       steps {
-        echo "${env.BEG_STG_VAR}"
+        echo "${env.WHOAMI_VAR}"
         sh 'host -t TXT pgp.michaelholley.us |awk -F \'"\' \'{print $2}\''
       }
     }
