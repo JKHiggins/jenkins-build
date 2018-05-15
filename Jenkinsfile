@@ -35,5 +35,31 @@ pipeline {
         input 'Ready to deploy to stage?'
       }
     }
+
+    stage('Parallel Build') {
+      failFast true
+      parallel {
+        stage('Stage One') {
+          agent any
+          steps {
+            echo "1 - Stage one executing"
+          }
+        }
+
+        stage('Stage Two') {
+          agent any
+          steps {
+            echo "2 - Stage two executing"
+          }
+        }
+
+        stage('Stage Three') {
+          agent any
+          steps {
+            echo "3 - Stage three executing"
+          }
+        }
+      }
+    }
   }
 }
