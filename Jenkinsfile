@@ -1,10 +1,13 @@
 pipeline {
   agent none
+
   environment {
     NODE_VER = '8.1.0'
   }
+
   stages {
-    stage('Beginning') { agent any
+    stage('Beginning') {
+      agent any
       environment {
         BEG_STG_VAR = 'Hey, we are beginning!'
       }
@@ -15,7 +18,8 @@ pipeline {
       }
     }
 
-    stage('Who Am I?') { agent any
+    stage('Who Am I?') {
+      agent any
       environment {
         WHOAMI_VAR = 'I am printing'
       }
@@ -25,7 +29,8 @@ pipeline {
       }
     }
 
-    stage('Deploy to stage?') { agent none
+    stage('Deploy to stage?') {
+      agent none
       steps {
         input 'Ready to deploy to stage?'
       }
