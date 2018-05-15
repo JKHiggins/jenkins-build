@@ -17,6 +17,7 @@ pipeline {
         echo 'Hello World'
         sh 'echo $NODE_VER'
         echo "${env.BEG_STG_VAR}"
+        hello()
       }
     }
 
